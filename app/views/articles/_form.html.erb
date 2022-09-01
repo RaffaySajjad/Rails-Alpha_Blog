@@ -1,0 +1,24 @@
+<% if @article.errors.any? %>
+  <h2>Following error(s) occured while saving this article</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @article do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br/>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <br/>
+  <%= f.submit %>
+<% end %>
+<div>
+  <%= link_to "Back to articles", articles_path %>
+</div>
